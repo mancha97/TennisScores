@@ -13,10 +13,7 @@ public class MainActivity extends AppCompatActivity {
     TextView v2;
     Button button;
     Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
+    TextView v3;
     Button button7;
 
     int contador1;
@@ -31,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         v1 = findViewById(R.id.text1);
         v2= findViewById(R.id.text3);
+        v3= findViewById(R.id.text4);
         button = findViewById(R.id.b1);
         button2 = findViewById(R.id.b2);
         button7 = findViewById(R.id.b7);
@@ -56,17 +54,38 @@ public class MainActivity extends AppCompatActivity {
                     contador=contador +10;
                     String t = Integer.toString(contador);
                     v1.setText(t);
+                    if(contador1==40){
+                        String t3= "Deuce";
+                        v3.setText(t3);
+                    }
                 }
                 else if(contador==40 && contador1!=40){
-
+                    if(contador==40 && contador1==41){
+                        contador1=40;
+                        String t = Integer.toString(contador1);
+                        String t3= "Deuce";
+                        v2.setText(t);
+                        v3.setText(t3);
+                    }else{
                     String t = "win";
+                    String t2="lose";
                     v1.setText(t);
-                }
-               else if(contador1==40 && contador==40){
-                    contador=contador +1;
-                    String t = "advance";
+                    v2.setText(t2);}
+                }  else if(contador1==40 && contador==40){
+                    contador=41;
+                    String t="adv";
                     v1.setText(t);
+                    String t3= "Matchpoint";
+                    v3.setText(t3);
                 }
+                else if (contador==41 && contador1==40){
+                    String t = "win";
+                    String t2="lose";
+                    v1.setText(t);
+                    v2.setText(t2);
+                }
+
+
 
             }
         });
@@ -87,23 +106,38 @@ public class MainActivity extends AppCompatActivity {
                     contador1=contador1 +10;
                     String t = Integer.toString(contador1);
                     v2.setText(t);
+                    if(contador==40){
+                        String t3= "Deuce";
+                        v3.setText(t3);
+                    }
                 }
                 else if(contador1==40 && contador!=40){
+                    if(contador1==40 && contador==41){
+                        contador=40;
+                        String t = Integer.toString(contador);
+                        v1.setText(t);
+                        String t3= "Deuce";
+                        v3.setText(t3);
+                    }else{
                     String t = "win";
+                    String t2="lose";
                     v2.setText(t);
+                    v1.setText(t2);}
                 }
-              else if(contador1==40 && contador==40){
-                    contador1=contador1 +1;
-                    String t = "matchpoint";
+                else if(contador1==40 && contador==40){
+                    contador1=41;
+                    String t="adv";
                     v2.setText(t);
-                }else if(v2.getText()=="matchpoint"){
-                    String t = "advance";
-                    v2.setText(t);
+                    String t3= "Matchpoint";
+                    v3.setText(t3);
                 }
-                else if(v2.getText()=="advance"){
+                else if (contador1==41 && contador==40){
                     String t = "win";
+                    String t2="lose";
                     v2.setText(t);
+                    v1.setText(t2);
                 }
+
 
 
 
